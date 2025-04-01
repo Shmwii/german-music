@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German-Language Music Analysis</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Light Blue Background */
+            color: #333; /* Dark Text */
+            background-image: url('https://www.transparenttextures.com/patterns/concrete-wall.png'); /* Textured Background */
+        }
+
+        header {
+            background: linear-gradient(135deg, #0a52a3, #082a48); /* Gradient Background */
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-bottom: 5px solid #ffcc00; /* Yellow Accent */
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text Shadow */
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly Transparent White Background */
+            backdrop-filter: blur(5px); /* Blur Effect */
+            border-radius: 12px; /* Rounded Corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            border-bottom: 2px solid #ffcc00; /* Yellow Border */
+            padding-bottom: 0.5rem;
+            color: #074a97; /* Blue Text */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Text Shadow */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: rgba(178, 224, 255, 0.9); /* Slightly Transparent Light Blue Background */
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border-radius: 12px; /* Rounded Corners */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth Transition */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        li:hover {
+            background-color: rgba(135, 206, 255, 0.9); /* Slightly Darker Blue on Hover */
+            transform: translateY(-2px); /* Lift Effect on Hover */
+        }
+
+        footer {
+            background: linear-gradient(135deg, #4a90e2, #357ab7); /* Gradient Background */
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            border-top: 5px solid #ffcc00; /* Yellow Accent */
+        }
+
+        .lyrics {
+            display: flex;
+            justify-content: space-between;
+            background-color: rgba(249, 249, 249, 0.9); /* Slightly Transparent Light Background */
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 12px; /* Rounded Corners */
+            margin-bottom: 1rem;
+            white-space: pre-wrap;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .lyrics div {
+            width: 48%;
+        }
+
+        #video-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        video {
+            width: 100%;
+            max-width: 560px;
+            border-radius: 12px; /* Rounded Corners for Video */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for Video */
+        }
+
+        #analysis {
+            padding: 1rem;
+            background-color: rgba(240, 248, 255, 0.9); /* Slightly Transparent Light Blue Background */
+            border-radius: 12px; /* Rounded Corners */
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>German-Language Music Analysis</h1>
+    </header>
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Welcome to our website dedicated to analyzing popular German songs and their lyrics. Explore the lyrical themes, word frequency, and more.</p>
+        </section>
+        <section id="song-list">
+            <h2>Popular German Songs</h2>
+            <ul id="songs">
+                <!-- Songs will be dynamically loaded here -->
+            </ul>
+        </section>
+        <section id="lyrics-analysis">
+            <h2>Lyrics Analysis</h2>
+            <div id="video-container">
+                <video id="video" controls>
+                    <source id="video-source" src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="lyrics">
+                <div>
+                    <h3>German Lyrics</h3>
+                    <p id="lyrics"></p>
+                </div>
+                <div>
+                    <h3>English Translation</h3>
+                    <p id="translation"></p>
+                </div>
+            </div>
+            <div id="analysis">
+                <h3>Analysis</h3>
+                <p id="word-frequency">Word Frequency: ...</p>
+                <p id="themes">Themes: ...</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 German-Language Music Analysis. All rights reserved.</p>
+    </footer>
+    <script>
+        const songs = [
+            {
+                title: "99 Luftballons",
+                artist: "Nena",
+                lyrics: `
+                    Hast du etwas Zeit für mich?
+                    Dann singe ich ein Lied für dich
+                    Von neunundneunzig Luftballons
+                    Auf ihrem Weg zum Horizont
+
+                    Denkst du vielleicht grad an mich?
+                    Dann singe ich ein Lied für dich
+                    Von neunundneunzig Luftballons
+                    Und dass sowas von sowas kommt
+
+                    Neunundneunzig Luftballons
+                    Auf ihrem Weg zum Horizont
+                    Hielt man für UFOs aus dem All
+                    Darum schickte ein General
+                    'Ne Fliegerstaffel hinterher
+                    Alarm zu geben, wenn es so wär
+                    Dabei war'n da am Horizont
+                    Nur neunundneunzig Luftballons
+                `,
+                translation: `
+                    Do you have some time for me?
+                    Then I'll sing a song for you
+                    About ninety-nine balloons
+                    On their way to the horizon
+
+                    Perhaps you're thinking of me right now?
+                    Then I'll sing a song for you
+                    About ninety-nine balloons
+                    And that such a thing comes from such a thing
+
+                    Ninety-nine balloons
+                    On their way to the horizon
+                    People thought they were UFOs from space
+                    So a general sent
+                    A squadron after them
+                    To raise the alarm if it were so
+                    But there on the horizon were
+                    Only ninety-nine balloons
+                `,
+                video: 'https://raw.githubusercontent.com/ed6095-web/hiiii/refs/heads/main/WhatsApp%20Video%202025-04-01%20at%2020.53.37_5bf13a99.mp4',
+                analysis: {
+                    wordFrequency: "Luftballons: 8, Horizont: 2, Lied: 2",
+                    themes: "War, Peace, Innocence"
+                }
+            },
+            {
+                title: "Atemlos durch die Nacht",
+                artist: "Helene Fischer",
+                lyrics: `
+                    Wir zieh'n durch die Straßen und die Clubs dieser Stadt
+                    Das ist unsre' Nacht, wie für uns beide gemacht
+                    Oh-oh, oh-oh
+                    Ich schließe meine Augen, lösche jedes Tabu
+                    Küsse auf der Haut, so wie ein Liebestattoo
+                    Oh-oh, oh-oh
+
+                    Was das zwischen uns auch ist
+                    Bilder, die man nie vergisst
+                    Und dein Blick hat mir gezeigt
+                    Das ist unsre' Zeit
+
+                    Atemlos durch die Nacht
+                    Bis ein neuer Tag erwacht
+                    Atemlos, einfach raus
+                    Deine Augen zieh'n mich aus
+                `,
+                translation: `
+                    We walk through the streets and the clubs of this town
+                    This is our night, made for us both
+                    Oh-oh, oh-oh
+                    I close my eyes, erase every taboo
+                    Kisses on the skin, like a love tattoo
+                    Oh-oh, oh-oh
+
+                    Whatever this is between us
+                    Pictures you never forget
+                    And your look showed me
+                    This is our time
+
+                    Breathless through the night
+                    Until a new day awakens
+                    Breathless, simply out
+                    Your eyes pull me out
+                `,
+                video: 'https://raw.githubusercontent.com/ed6095-web/hiiii/refs/heads/main/WhatsApp%20Video%202025-04-01%20at%2020.53.36_23ad5ed5.mp4',
+                analysis: {
+                    wordFrequency: "Atemlos: 4, Nacht: 2, Augen: 2",
+                    themes: "Love, Nightlife, Freedom"
+                }
+            },
+            {
+                title: "Männer",
+                artist: "Herbert Grönemeyer",
+                lyrics: `
+                    Männer nehmen in den Arm
+                    Männer geben Geborgenheit
+                    Männer weinen heimlich
+                    Männer brauchen viel Zärtlichkeit
+
+                    Oh Männer sind so verletzlich
+                    Männer sind auf dieser Welt einfach unersetzlich
+                    Männer kaufen Frauen
+                    Männer stehen ständig unter Strom
+                    Männer baggern wie blöde
+                    Männer lügen am Telefon
+
+                    Männer sind allzeit bereit
+                    Männer bestechen durch ihr Geld und ihre Lässigkeit
+                    Männer haben's schwer, nehmen's leicht
+                    Außen hart und innen ganz weich
+                `,
+                translation: `
+                    Men take you in their arms
+                    Men give security
+                    Men cry secretly
+                    Men need a lot of tenderness
+
+                    Oh men are so vulnerable
+                    Men are simply indispensable in this world
+                    Men buy women
+                    Men are constantly under stress
+                    Men dig like crazy
+                    Men lie on the phone
+
+                    Men are always ready
+                    Men are persuasive with their money and their casualness
+                    Men have it tough, take it easy
+                    Hard on the outside and soft on the inside
+                `,
+                video: 'https://raw.githubusercontent.com/ed6095-web/hiiii/refs/heads/main/WhatsApp%20Video%202025-04-01%20at%2020.53.36_825efcb2.mp4',
+                analysis: {
+                    wordFrequency: "Männer: 10, Frauen: 2, Welt: 2",
+                    themes: "Gender Roles, Masculinity, Vulnerability"
+                }
+            }
+        ];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const songList = document.getElementById("songs");
+            const lyrics = document.getElementById("lyrics");
+            const translation = document.getElementById("translation");
+            const video = document.getElementById("video");
+            const videoSource = document.getElementById("video-source");
+            const wordFrequency = document.getElementById("word-frequency");
+            const themes = document.getElementById("themes");
+
+            songs.forEach(song => {
+                const li = document.createElement("li");
+                li.textContent = `${song.title} by ${song.artist}`;
+                li.addEventListener("click", () => {
+                    lyrics.textContent = song.lyrics.trim();
+                    translation.textContent = song.translation.trim();
+                    videoSource.src = song.video;
+                    video.load();
+                    video.play();
+                    wordFrequency.textContent = `Word Frequency: ${song.analysis.wordFrequency}`;
+                    themes.textContent = `Themes: ${song.analysis.themes}`;
+                });
+                songList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>
